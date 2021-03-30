@@ -1,0 +1,89 @@
+import React, { Component } from 'react';
+import { Button, View, Text, Alert } from 'react-native';
+import {Audio} from 'expo-av';
+
+
+export default class App extends Component {
+  async playSound(url){
+    try{
+      await Audio.setIsEnabledAsync(true)
+      var playback=await Audio.Sound.createAsync(
+        {uri:url},
+        {shouldPlay:true}
+      )
+    }
+    catch(error){
+      console.log()
+    }
+  }
+  render() {
+    return (
+      <View>
+      <View style={{ width:200 ,height:100 , marginTop:20}}>
+      <Button 
+      title='sound 1' 
+      color="red"
+      onPress={()=> {
+        var url = 'http://soundbible.com/mp3/Buzzer-SoundBible.com-188422102.mp3';
+        this.playSound(url);
+      }
+      }/>
+      </View>
+
+      <View style={{ width:200 ,height:100 , marginTop:20}}>
+      <Button 
+      title='sound 2' 
+      color="blue"
+       onPress={()=> {
+        var url = 'http://soundbible.com/mp3/Buzzer-SoundBible.com-188422102.mp3';
+        this.playSound(url);
+      }
+      }/>
+      </View>
+
+      <View style={{ width:200 ,height:100 , marginTop:20}}>
+      <Button 
+      title='sound 3' 
+      color="darkviolet"
+       onPress={()=> {
+        var url = 'http://soundbible.com/mp3/Buzzer-SoundBible.com-188422102.mp3';
+        this.playSound(url);
+      }
+      }/>
+      </View>
+
+      <View style={{ width:200 ,height:100 , marginTop:20}}>
+      <Button 
+      title='sound 4' 
+      color="green"
+       onPress={()=> {
+        var url = 'http://soundbible.com/mp3/Buzzer-SoundBible.com-188422102.mp3';
+        this.playSound(url);
+      }
+      }/>
+      </View>
+
+      <View style={{ width:200 ,height:100 , marginTop:20}}>
+      <Button 
+      title='sound 5' 
+      color="orange"
+       onPress={()=> {
+        var url = 'http://soundbible.com/mp3/Buzzer-SoundBible.com-188422102.mp3';
+        this.playSound(url);
+      }
+      }/>
+      </View>
+
+      <View style={{ width:200 ,height:100 , marginTop:20}}>
+      <Button 
+      title='Stop sound' 
+      color="pink"
+       onPress={()=> {
+         Audio.setIsEnabledAsync(false);
+       }
+       }/>
+       </View>
+       </View>
+    );
+  }
+}
